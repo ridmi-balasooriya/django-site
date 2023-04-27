@@ -1,4 +1,4 @@
 myenv
 */db.sqlite3
 */pet_data.csv
-*/*.pyc
+*.pyc

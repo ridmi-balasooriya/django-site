@@ -1,0 +1,63 @@
+#page{
+    font-family: Tahoma, sans-serif;
+    padding: 40px;
+    color:#a1a1a1;
+    line-height: 20px;
+    font-size: 14px;
+}
+.header{
+    display: flex;
+}
+.logo{
+    max-width: 150px;
+}
+nav ul{
+    display: block;
+    list-style: none;
+    margin-top: 40%;
+}
+nav ul li{
+    display: inline-block;
+    margin: 0px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+nav ul li a{
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+    color: #646464;
+}
+.main-para{
+    text-align: center;
+}
+.hidden{
+    display: none;
+}
+.petlist{
+    text-align: center;
+}
+.petlist a{
+    text-decoration: none;
+    color:#a1a1a1;
+    display: inline-block;
+}
+
+.petname{
+    display: inline-block;
+    width: 250px;
+    border: thin solid #ccc;
+    margin: 20px 10px;
+    padding: 10px;
+    background: #fbfafa;
+    border-radius: 10px;
+}
+.petlist a:hover .petname{
+    box-shadow:3px 3px 2px 1px #c6c6c6;
+
+}
+.petname h3{
+    text-transform: uppercase;
+    color: #646464;
+}
