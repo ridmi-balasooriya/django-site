@@ -1,0 +1,66 @@
+{% extends 'base_data.html' %}
+
+{% block content %}
+<div class="data_analyse_div">
+    <h2>Check Number Set Frequent</h2>
+    <div class="data_form">
+        <form onsubmit="makeRequest(event)">
+            {% csrf_token %}
+            <label for="num_one">
+                <input type="text" name="num_one" placeholder="1" />
+            </label>
+            <label for="num_two">
+                <input type="text" name="num_two" placeholder="2" />
+            </label>
+            <label for="num_three">
+                <input type="text" name="num_three" placeholder="3" />
+            </label>
+            <label for="num_four">
+                <input type="text" name="num_four" placeholder="4" />
+            </label>
+            <label for="num_five">
+                <input type="text" name="num_five" placeholder="5" />
+            </label>
+            <input type="submit" name="submit" value="Check Posibility" id="submit_btn" />
+        </form>
+    </div>
+
+    <div id="compare_val_div"></div>
+
+</div>
+<script>
+function makeRequest(event) {
+    
+    event.preventDefault();
+
+    var csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+    var formData = new FormData(event.target);
+    
+    dataForm = document.querySelector('form');
+
+    var httpRequest = new XMLHttpRequest();
+
+    httpRequest.open('POST', 'ajax_view');
+    httpRequest.setRequestHeader('X-CSRFToken', csrf_token);
+
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                var responseData = JSON.parse(httpRequest.responseText);
+                var current_num_set = responseData.current_num_set;
+                var common_val_dic = responseData.common_val_dic;
+
+                display_current_num_set(current_num_set, common_val_dic);
+
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    };
+
+    httpRequest.send(formData);
+}
+</script>
+{% endblock %}
+

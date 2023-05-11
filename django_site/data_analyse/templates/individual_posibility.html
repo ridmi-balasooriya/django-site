@@ -1,0 +1,55 @@
+{% extends 'base_data.html' %}
+
+{% block content %}
+<div class="data_analyse_div">
+    <h2>{{ individual_date }} | Number Set Frequent</h2>
+
+    <div class="individual_set">
+        {% for num in response_data.current_num_set %}
+            <div class="num_div">{{ num }}</div>
+        {% endfor %}
+    </div>
+
+    {% for key, common_data in response_data.common_val_dic.items %}
+        {% if common_data %}
+            <h3>{{ common_data.0.common_nums|length }} NUMBER OF COMMON VALUES - {{ common_data|length }} TIME(S)</h3>
+            <table class="dataset_table">
+                <tr>
+                    <th>Compared Date</th>
+                    <th>Compared Num Set</th>
+                    <th>Win	Num of Common</th>
+                    <th>Common Num Set</th>
+                </tr>
+                {% for data in common_data %}
+                        <tr>
+                            <td>{{ data.compared_date }}</td>
+                            <td>
+                                {% for num in data.compared_dataset%}
+                                    <span {% if num in response_data.current_num_set %} class="higlight" {% endif %}>
+                                        {{ num }}
+                                    </span>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                
+                                {% if data.compare_win == False %}
+                                    <span class="lose"></span>
+                                {% else %}
+                                    <span class="win"></span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% for num in data.common_nums %}
+                                    <span>{{ num }}</span>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                {% endfor %}
+            </table> 
+        {% endif %}       
+    {% endfor %}
+
+</div>
+
+
+{% endblock %}

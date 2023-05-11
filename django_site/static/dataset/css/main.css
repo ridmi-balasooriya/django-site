@@ -1,0 +1,159 @@
+body{
+    color: #403f3f;
+}
+#main_content{
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+header{
+    text-align: center;
+}
+nav{
+    display: inline-block;
+    margin: auto;
+}
+nav ul li{
+    display: inline-block;
+}
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: #606060;
+    text-transform: uppercase;
+    border: thin solid #e7e7e7;
+    padding: 8px 15px;
+    margin: 5px;    
+    background:transparent;
+}
+nav ul li a:hover,nav ul li a.active{
+    background: #ededed;
+}
+h1, h2, h3{
+    text-transform: uppercase;
+    text-align: center;
+}
+.twocol_div{
+    column-count: 2
+}
+.dataset_table{
+    margin: auto auto 50px auto;
+}
+.dataset_table td, .dataset_table th{
+    border: thin solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+.dataset_table td span{
+    display: inline-block;
+    border: thin solid #ccc;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    margin: 2px;
+}
+.dataset_table td span.lose{
+    border:thin solid #ff0000;
+    background: #ff0000;
+}
+.dataset_table td span.win{
+    border:thin solid #66ff00;
+    background: #66ff00;
+}
+.dataset_table .higlight{
+    background: #fff618;
+    border: thin solid #fff618;
+}
+.dataset_table a{
+    text-decoration: none;
+    color: #474747;
+    display: block;
+    padding: 8px 20px;
+    background: #f3f1f1;
+    border: thin solid #f3f1f1;
+    box-shadow: 2px 2px #c8c8c8;
+}
+.dataset_table a:hover{
+    background: transparent;
+    border: thin solid #ccc;
+}
+.data_form{
+    text-align: center;
+}
+.data_form form{
+    display: inline-block;
+}
+.data_form input{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    margin: 20px 8px 30px 8px;
+    border: thin dashed #4a4a4a;
+    box-shadow: 3px 3px #ededed;
+    color: #4a4a4a;
+}
+.data_form .date_field_div input[type="date"]{
+    width: 200px;
+}
+.data_form .date_field_div input[type="radio"]{
+    width: 20px;
+    height: 20px;
+    box-shadow: none;
+}
+.data_form .date_field_div #id_win, .data_form .date_field_div #id_win div{
+    display: inline-block;
+}
+.data_form #submit_btn{
+    display: block;
+    width: 200px;
+    height: 45px;
+    border: thin solid #ccc;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: auto;
+    background: #4a4a4a;
+    color: #fff;
+    cursor: pointer;
+    line-height: normal;
+}
+#compare_val_div{
+    text-align: center;
+}
+.error_note{
+    text-align: center;
+    background: #ff2b2b;
+    width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    color: #fff;
+}
+.individual_set{
+    margin: 20px auto;
+    text-align: center;
+}
+.individual_set .num_div{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    margin: 20px 8px 30px 8px;
+    border: thin dashed #4a4a4a;
+    box-shadow: 3px 3px #ededed;
+    color: #4a4a4a;
+}
+@media screen and (max-width: 1080px) {
+    .twocol_div{
+        column-count: 2
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .twocol_div{
+        column-count: 1
+    }
+}

@@ -1,0 +1,63 @@
+{% extends "base_data.html" %}
+
+{% block content %}
+    {% for common_key, common_val in common_val_dic.items %}
+        <div class="data_analyse_div">
+            {% if common_val %}
+                <h3>{{ common_val.0.sorted_with.num_of_common_nums }} Number of Common Values  -  {{ common_val|length }} time(s)</h3>
+                <table class="dataset_table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Num Set</th>
+                        <th>Win</th>
+                        <th>Compared Date</th>
+                        <th>Compared Num Set</th>
+                        <th>Num of Common</th>
+                        <th>Common Num Set</th>       
+                        <th>Win</th>
+                    </tr>
+                    {% for list in common_val %}
+                    <tr>
+                        <td>{{ list.date }}</td>
+                        <td>
+                            {% for num in list.num_set %}                               
+                                <span  {% if num in list.sorted_with.common_nums %} class="higlight" {% endif %}>                                
+                                    {{ num }}
+                                </span>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% if list.win == False %}
+                                <span class="lose"></span>
+                            {% else %}
+                                <span class="win"></span>
+                            {% endif %}
+                        </td>
+                        <td>{{ list.sorted_with.compared_date }}</td>
+                        <td>
+                            {% for num in list.sorted_with.compared_dataset %}
+                                <span  {% if num in list.sorted_with.common_nums %} class="higlight" {% endif %}>                                
+                                    {{ num }}
+                                </span>
+                            {% endfor %}
+                        </td>
+                        <td>{{ list.sorted_with.num_of_common_nums }}</td>
+                        <td>
+                            {% for num in list.sorted_with.common_nums %}
+                                <span>{{ num }}</span>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% if list.sorted_with.compare_win == False %}
+                                <span class="lose"></span>
+                            {% else %}
+                                <span class="win"></span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>      
+    {% endfor %}    
+{% endblock %}

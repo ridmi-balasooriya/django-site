@@ -1,0 +1,25 @@
+{% extends 'base_data.html' %}
+
+{% block content %}
+<div class="data_analyse_div">
+    <h2>Add New Number Set</h2>
+    {% if erro_note %}
+        <div class="error_note">{{ erro_note }}</div>
+    {% endif %}
+    <div class="data_form">
+        <form action="{% url 'add_new_data' %}" method="post" >
+            {% csrf_token %}
+            <div class="date_field_div">
+                {{ add_data_form.date }}
+                {{ add_data_form.win }}
+            </div>
+            {{ add_data_form.num_one }}
+            {{ add_data_form.num_two }}
+            {{ add_data_form.num_three }}
+            {{ add_data_form.num_four }}
+            {{ add_data_form.num_five }}
+            <input type="submit" name="submit" value="Add New Data" id="submit_btn" />
+        </form>
+    </div>
+</div>
+{% endblock %}

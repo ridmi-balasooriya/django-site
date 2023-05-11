@@ -1,0 +1,48 @@
+{% extends "base_data.html" %}
+
+{% block content %}
+<h1>Data Set</h1>
+<div class="twocol_div">
+    <table class="dataset_table">
+        {% for data in dataset %}
+        {% if data.num_one == "null" %}
+        <tr>
+            <td>{{ data.date }}</td>
+            <td>
+                <span>--</span> 
+                <span>--</span>
+                <span>--</span>
+                <span>--</span>
+                <span>--</span>                 
+            </td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>
+                {{ data.date }}
+            </td>
+            <td>
+                <span>{{ data.num_one }}</span> 
+                <span>{{ data.num_two }}</span>
+                <span>{{ data.num_three }}</span>
+                <span>{{ data.num_four }}</span>
+                <span>{{ data.num_five }}</span>                 
+            </td>
+            <td>
+                {% if data.win == False %}
+                <span class="lose"></span>
+                {% else %}
+                <span class="win"></span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'individual_posibility' data.id  %}">Analyse</a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
